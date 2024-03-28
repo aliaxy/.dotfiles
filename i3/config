@@ -48,8 +48,6 @@ client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
-# betterlockscreen config
-
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l -q
@@ -82,6 +80,7 @@ gaps inner 5
 gaps outer 0
 
 # auto execute
+exec --no-startup-id sh ~/.config/betterlockscreen/start.sh
 exec --no-startup-id fcitx5
 exec --no-startup-id copyq
 exec --no-startup-id picom

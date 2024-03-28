@@ -12,3 +12,15 @@ depends = []
 
 [feh.files]
 "fehbg" = "~/.fehbg"
+
+[betterlockscreen.files]
+"betterlockscreen" = "~/.config/betterlockscreen"
+
+[dunst.files]
+"dunst" = "~/.config/dunst"
+
+[alacritty.files]
+"alacritty" = "~/.config/alacritty"
+
+[btop.files]
+"btop" = "~/.config/btop"

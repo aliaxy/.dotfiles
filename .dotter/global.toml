@@ -24,3 +24,6 @@ depends = []
 
 [btop.files]
 "btop" = "~/.config/btop"
+
+[fish.files]
+"fish" = "~/.config/fish"

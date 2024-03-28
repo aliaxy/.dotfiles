@@ -1,0 +1,173 @@
+import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+
+[shell]
+program = "/usr/bin/fish"
+args = []
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+# Spread additional padding evenly around the terminal content.
+dynamic_padding = true
+
+# Window decorations
+#
+# Values for `decorations`:
+#     - full: Borders and title bar
+#     - none: Neither borders nor title bar
+#
+# Values for `decorations` (macOS only):
+#     - transparent: Title bar, transparent background and title bar buttons
+#     - buttonless: Title bar, transparent background, but no title bar buttons
+decorations = "full"
+
+# Background opacity as a floating point number from 0.0 to 1.0.
+# The value 0.0 is completely transparent and 1.0 is opaque.
+opacity = 1.0
+
+# Request compositor to blur content behind transparent windows.
+# (works on macOS/KDE Wayland)
+blur = false
+
+# Startup mode (changes require restart)
+startup_mode = "Windowed"
+
+
+[window.dimensions]
+# Window dimensions (changes require restart).
+#
+# Specified in number of columns/lines, not pixels.
+# If both are `0`, this setting is ignored.
+columns = 0
+lines = 0
+
+[window.position]
+# Window position (changes require restart)
+#
+# Specified in number of pixels.
+# If the position is not set, the window manager will handle the placement.
+x = 0
+y = 0
+
+[window.padding]
+# Window padding (changes require restart)
+#
+# Blank space added around the window in pixels. This padding is scaled
+# by DPI and the specified value is always added at both opposing sides.
+x = 2
+y = 2
+
+[scrolling]
+# Maximum number of lines in the scrollback buffer.
+# Specifying '0' will disable scrolling.
+history = 32768
+
+# Number of lines the viewport will move for every line scrolled when
+# scrollback is enabled (history > 0).
+multiplier = 3
+
+[font]
+# Point size
+size = 12.0
+
+# When true, Alacritty will use a custom built-in font for
+# box drawing characters (Unicode points U+2500 - U+259F)
+# and powerline symbols (Unicode points U+E0B0 - U+E0B3).
+builtin_box_drawing = true
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "regular"
+
+[font.bold]
+family = "FiraCode Nerd Font"
+style = "bold"
+
+[font.italic]
+family = "FiraCode Nerd Font"
+style = "italic"
+
+[font.bold_italic]
+family = "FiraCode Nerd Font"
+style = "bold_italic"
+
+[font.offset]
+# Offset is the extra space around each character. `offset.y` can be thought of
+# as modifying the line spacing, and `offset.x` as modifying the letter spacing.
+x = 0
+y = 0
+
+[font.glyph_offset]
+# Glyph offset determines the locations of the glyphs within their cells with
+# the default being at the bottom. Increasing `x` moves the glyph to the right,
+# increasing `y` moves the glyph upwards.
+x = 0
+y = 0
+
+[bell]
+# Visual bell animation effect for flashing the screen when the visual bell is rung.
+animation = "EaseOutExpo"
+
+# Duration of the visual bell flash in milliseconds.
+# A `duration` of `0` will disable the visual bell animation.
+duration = 0
+
+# Visual bell animation color.
+color = "#ffffff"
+
+# This program is executed whenever the bell is rung.
+# When set to "None", no command will be executed.
+command = "None"
+
+[selection]
+# This string contains all characters that are used as separators
+# for "semantic words" in Alacritty.
+semantic_escape_chars = ",│`|:\"' ()[]{<>"
+
+# When set to true, selected text will be copied to the primary clipboard.
+save_to_clipboard = true
+
+[cursor]
+# If the vi mode cursor style is "None" or not specified,
+# it will fall back to the active value of the normal cursor.
+vi_mode_style = "None"
+
+# Cursor blinking interval in milliseconds.
+blink_interval = 500
+
+# Time after which cursor stops blinking, in seconds.
+# Specifying 0 will disable timeout for blinking.
+blink_timeout = 5
+
+# If this is `true`, the cursor will be rendered as a hollow box when the
+# window is not focused.
+unfocused_hollow = true
+
+# Thickness of the cursor relative to the cell width
+# as floating point number from 0.0 to 1.0.
+thickness = 0.15
+
+[cursor.style]
+shape = "Beam"
+blinking = "Always"
+
+[terminal]
+# Controls the ability to write to the system clipboard with the OSC 52 escape sequence.
+osc52 = "OnlyCopy"
+
+[mouse]
+# If this is `true`, the cursor is temporarily hidden when typing.
+hide_when_typing = false
+
+bindings = [{ mouse = "Right", mods = "Control", action = "Paste" }]
+
+[debug]
+# Display the time it takes to redraw each frame.
+render_timer = false
+
+# Keep the log file after quitting Alacritty.
+persistent_logging = false
+
+# Force use of a specific renderer, "None" will use the highest available one.
+renderer = "None"

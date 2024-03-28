@@ -1,0 +1,14 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+
+[default.variables]
+
+[i3.files]
+"i3" = "~/.config/i3"
+
+[feh.files]
+"fehbg" = "~/.fehbg"

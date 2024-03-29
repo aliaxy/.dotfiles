@@ -33,3 +33,27 @@ depends = []
 
 [xprofile.files]
 "xprofile" = "~/.xprofile"
+
+[polybar.files]
+"polybar" = "~/.config/polybar"
+
+[rofi.files]
+"rofi" = "~/.config/rofi"
+
+[qt6ct.files]
+"qt6ct" = "~/.config/qt6ct"
+
+[qt5ct.files]
+"qt5ct" = "~/.config/qt5ct"
+
+[Xresources.files]
+"Xresources" = "~/.Xresources"
+
+[mpd.files]
+"mpd" = "~/.config/mpd"
+
+[ncmpcpp.files]
+"ncmpcpp" = "~/.config/ncmpcpp"
+
+[starship.files]
+"starship.toml" = "~/.config/starship.toml"

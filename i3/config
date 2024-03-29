@@ -53,10 +53,6 @@ client.background        $base
 exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l -q
 bindsym $mod+$mod1+l exec --no-startup-id loginctl lock-session
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -87,6 +83,7 @@ exec --no-startup-id picom
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id pkill -9 dunst; dunst
 exec --no-startup-id libinput-gestures-setup start
+exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id wezterm
@@ -95,15 +92,26 @@ bindsym $mod+Shift+Return exec --no-startup-id alacritty
 # kill focused window
 bindsym $mod+q kill
 
-# start a program launcher
-bindsym $mod+s exec --no-startup-id dmenu_run
+# open the launcher
+bindsym $mod+s exec --no-startup-id sh ~/.config/rofi/bin/launcher
+
+# open the powermenu
+bindsym $mod+p exec --no-startup-id sh ~/.config/rofi/bin/powermenu
+
+# open the run menu
+bindsym $mod+r exec --no-startup-id sh ~/.config/rofi/bin/runner
+
+# open the screenshot menu
+bindsym $mod+t exec --no-startup-id sh ~/.config/rofi/bin/screenshot
 
 # fixed workspace for special application
 # start a browser
 bindsym $mod+c workspace number $ws11; exec --no-startup-id google-chrome-stable
-bindsym $mod+m workspace number $ws12
-bindsym $mod+o workspace number $ws13
-bindsym $mod+w workspace number $ws14
+bindsym $mod+m workspace number $ws12; exec --no-startup-id steam
+bindsym $mod+o workspace number $ws13; exec --no-startup-id obs
+bindsym $mod+w workspace number $ws14; exec --no-startup-id wps
+
+bindsym $mod+e exec --no-startup-id thunar
 
 # default border style for new windows
 default_border pixel 1
@@ -118,6 +126,9 @@ for_window [class="qBittorrent"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="fcitx5-config-qt"] floating enable
+for_window [class="qt5ct"] floating enable
+for_window [class="qt6ct"] floating enable
+for_window [class="Blueberry.py"] floating enable
 
 # focus follows mouse
 focus_follows_mouse no
@@ -214,16 +225,16 @@ bindsym $mod1+Shift+Tab workspace prev
 workspace_auto_back_and_forth no
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace number $ws1; workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2; workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3; workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4; workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5; workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6; workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7; workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws10
 
 bindsym $mod+Shift+c move container to workspace number $ws11; workspace number $ws11
 bindsym $mod+Shift+m move container to workspace number $ws12; workspace number $ws12

@@ -3,8 +3,9 @@ local wezterm = require("wezterm")
 local config = {
 	font_size = 12,
 	font = wezterm.font_with_fallback({
-		"Fira Code",
+		"FiraCode Nerd Font",
 		"Source Han Sans CN",
+		"Noto Sans Symbols",
 	}),
 	color_scheme = "Catppuccin Mocha",
 

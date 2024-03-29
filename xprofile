@@ -1,0 +1,6 @@
+export TERMINFO=/usr/share/terminfo
+export PATH="$PATH:$(go env GOBIN)"
+export PATH="$PATH:/home/aliaxy/.cargo/bin"
+export RUSTUP_DIST_SERVER=https://rsproxy.cn
+export RUSTUP_UPDATE_ROOT=https://rsproxy.cn/rustup
+

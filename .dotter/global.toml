@@ -27,3 +27,9 @@ depends = []
 
 [fish.files]
 "fish" = "~/.config/fish"
+
+[wezterm.files]
+"wezterm" = "~/.config/wezterm"
+
+[xprofile.files]
+"xprofile" = "~/.xprofile"

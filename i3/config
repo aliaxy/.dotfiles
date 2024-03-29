@@ -89,7 +89,8 @@ exec --no-startup-id pkill -9 dunst; dunst
 exec --no-startup-id libinput-gestures-setup start
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id wezterm
+bindsym $mod+Shift+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -231,5 +232,9 @@ bindsym $mod+Shift+w move container to workspace number $ws14; workspace number 
 
 # reload the configuration file
 bindsym $mod+Escape reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+Escape restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+$mod1+Escape exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"

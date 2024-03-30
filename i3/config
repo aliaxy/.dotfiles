@@ -87,6 +87,7 @@ exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id pkill -9 dunst; dunst
 exec --no-startup-id libinput-gestures-setup start
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
+exec --no-startup-id conky
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id wezterm
@@ -109,6 +110,10 @@ bindsym $mod+t exec --no-startup-id sh ~/.config/rofi/bin/screenshot
 
 # copyq toggle
 bindsym $mod+v exec --no-startup-id copyq toggle
+
+# screenshot
+bindsym $mod+Shift+s exec --no-startup-id flameshot gui
+
 
 # fixed workspace for special application
 # start a browser
@@ -136,6 +141,7 @@ for_window [class="qt5ct"] floating enable
 for_window [class="qt6ct"] floating enable
 for_window [class="Blueberry.py"] floating enable
 for_window [class="copyq"] floating enable
+for_window [class="Xarchiver"] floating enable
 
 # focus follows mouse
 focus_follows_mouse no
@@ -255,4 +261,4 @@ bindsym $mod+Escape reload
 bindsym $mod+Shift+Escape restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+$mod1+Escape exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+Ctrl+Escape exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"

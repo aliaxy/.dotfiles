@@ -66,3 +66,6 @@ depends = []
 
 [yazi.files]
 "yazi" = "~/.config/yazi"
+
+[conky.files]
+"conky" = "~/.config/conky"

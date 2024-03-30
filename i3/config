@@ -55,10 +55,13 @@ bindsym $mod+$mod1+l exec --no-startup-id loginctl lock-session
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -104,6 +107,9 @@ bindsym $mod+r exec --no-startup-id sh ~/.config/rofi/bin/runner
 # open the screenshot menu
 bindsym $mod+t exec --no-startup-id sh ~/.config/rofi/bin/screenshot
 
+# copyq toggle
+bindsym $mod+v exec --no-startup-id copyq toggle
+
 # fixed workspace for special application
 # start a browser
 bindsym $mod+c workspace number $ws11; exec --no-startup-id google-chrome-stable
@@ -129,6 +135,7 @@ for_window [class="fcitx5-config-qt"] floating enable
 for_window [class="qt5ct"] floating enable
 for_window [class="qt6ct"] floating enable
 for_window [class="Blueberry.py"] floating enable
+for_window [class="copyq"] floating enable
 
 # focus follows mouse
 focus_follows_mouse no

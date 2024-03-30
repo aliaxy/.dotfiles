@@ -57,3 +57,12 @@ depends = []
 
 [starship.files]
 "starship.toml" = "~/.config/starship.toml"
+
+[startpage.files]
+"startpage" = "~/.config/startpage"
+
+[ranger.files]
+"ranger" = "~/.config/ranger"
+
+[yazi.files]
+"yazi" = "~/.config/yazi"

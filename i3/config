@@ -97,16 +97,10 @@ bindsym $mod+Shift+Return exec --no-startup-id alacritty
 bindsym $mod+q kill
 
 # open the launcher
-bindsym $mod+s exec --no-startup-id sh ~/.config/rofi/bin/launcher
+bindsym $mod+s exec --no-startup-id sh ~/.config/rofi/scripts/launcher.sh
 
 # open the powermenu
-bindsym $mod+p exec --no-startup-id sh ~/.config/rofi/bin/powermenu
-
-# open the run menu
-bindsym $mod+r exec --no-startup-id sh ~/.config/rofi/bin/runner
-
-# open the screenshot menu
-bindsym $mod+t exec --no-startup-id sh ~/.config/rofi/bin/screenshot
+bindsym $mod+p exec --no-startup-id sh ~/.config/rofi/scripts/powermenu.sh
 
 # copyq toggle
 bindsym $mod+v exec --no-startup-id copyq toggle
@@ -142,6 +136,7 @@ for_window [class="qt6ct"] floating enable
 for_window [class="Blueberry.py"] floating enable
 for_window [class="copyq"] floating enable
 for_window [class="Xarchiver"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 # focus follows mouse
 focus_follows_mouse no

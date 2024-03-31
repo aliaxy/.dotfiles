@@ -1,17 +1,10 @@
-configuration{
-    modi: "run,drun,window";
-    icon-theme: "Papirus";
-    show-icons: true;
-    terminal: "wezterm";
-    drun-display-format: "{icon} {name}";
-    location: 0;
-    disable-history: false;
-    hide-scrollbar: true;
-    display-drun: "   Apps ";
-    display-run: "   Run ";
-    display-window: " 󱂬  Window ";
-    display-Network: " 󰤨  Network ";
-    sidebar-mode: true;
+configuration {
+    show-icons:                     false;
+    display-drun: 		            "";
+    drun-display-format:            "{icon} {name}";
+    disable-history:                false;
+    click-to-exit: 		            true;
+    location:                       0;
 }
 
 * {
@@ -35,7 +28,7 @@ element-text, element-icon , mode-switcher {
 
 window {
     height: 360px;
-    border: 2px;
+    border: 3px;
     border-color: @border-col;
     background-color: @bg-col;
 }

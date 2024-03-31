@@ -12,6 +12,8 @@
 set $mod Mod4
 set $mod1 Mod1
 
+set $python /opt/miniconda3/bin/python
+
 # catppuccin-mocha theme
 set $rosewater #f5e0dc
 set $flamingo  #f2cdcd
@@ -51,7 +53,6 @@ client.background        $base
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l -q
-bindsym $mod+$mod1+l exec --no-startup-id loginctl lock-session
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -85,22 +86,31 @@ exec --no-startup-id copyq
 exec --no-startup-id picom
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id pkill -9 dunst; dunst
-exec --no-startup-id libinput-gestures-setup start
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
-exec --no-startup-id conky
+exec_always --no-startup-id pkill -9 conky; conky
+exec --no-startup-id notify-send -i ~/Pictures/user_icon.png "Welcome you!" -a "Aliaxy"
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id wezterm
-bindsym $mod+Shift+Return exec --no-startup-id alacritty
+
+# start a floating terminal
+bindsym $mod+Shift+Return exec --no-startup-id $python ~/.config/i3/scripts/scratchpad.py alacritty
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+q exec --no-startup-id $python ~/.config/i3/scripts/KillWindow.py kill
+bindsym $mod+Shift+q exec --no-startup-id $python ~/.config/i3/scripts/KillWindow.py forcekill
 
 # open the launcher
-bindsym $mod+s exec --no-startup-id sh ~/.config/rofi/scripts/launcher.sh
+bindsym $mod+s exec --no-startup-id sh ~/.config/rofi/bin/launcher.sh drun
 
 # open the powermenu
-bindsym $mod+p exec --no-startup-id sh ~/.config/rofi/scripts/powermenu.sh
+bindsym $mod+p exec --no-startup-id sh ~/.config/rofi/bin/powermenu.sh
+
+# open the bluetooth
+bindsym $mod+b exec --no-startup-id sh ~/.config/rofi/bin/bluetooth.sh
+
+# open the windows tab
+bindsym $mod+Tab exec --no-startup-id sh ~/.config/rofi/bin/launcher.sh window
 
 # copyq toggle
 bindsym $mod+v exec --no-startup-id copyq toggle
@@ -111,20 +121,22 @@ bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 
 # fixed workspace for special application
 # start a browser
-bindsym $mod+c workspace number $ws11; exec --no-startup-id google-chrome-stable
-bindsym $mod+m workspace number $ws12; exec --no-startup-id steam
-bindsym $mod+o workspace number $ws13; exec --no-startup-id obs
-bindsym $mod+w workspace number $ws14; exec --no-startup-id wps
+bindsym $mod+c workspace number $ws11; exec --no-startup-id $python ~/.config/i3/scripts/OpenApplicaion.py "Google-chrome" "google-chrome-stable" $ws11
+bindsym $mod+m workspace number $ws12; exec --no-startup-id $python ~/.config/i3/scripts/OpenApplicaion.py "steam" "steam" $ws12
+bindsym $mod+o workspace number $ws13; exec --no-startup-id $python ~/.config/i3/scripts/OpenApplicaion.py "obs" "obs" $ws13
+bindsym $mod+w workspace number $ws14; exec --no-startup-id $python ~/.config/i3/scripts/OpenApplicaion.py "wps" "wps" $ws14
 
 bindsym $mod+e exec --no-startup-id thunar
 
 # default border style for new windows
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 2
+default_floating_border pixel 2
 hide_edge_borders both
 
 # windows floating
-for_window [class="FloatingTerminal"] floating enable resize set 960 810,move absolute position center
+for_window [class="eww"] floating enable
+for_window [class="Eww"] floating enable
+for_window [class="Alacritty"] floating enable
 for_window [class="QQ"] floating enable
 for_window [class="wechat"] floating enable
 for_window [class="qBittorrent"] floating enable
@@ -137,6 +149,9 @@ for_window [class="Blueberry.py"] floating enable
 for_window [class="copyq"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="baidunetdisk"] floating enable
+for_window [class="Qalculate-gtk"] floating enable
 
 # focus follows mouse
 focus_follows_mouse no
@@ -243,7 +258,6 @@ bindsym $mod+Shift+7 move container to workspace number $ws7; workspace number $
 bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws10
-
 bindsym $mod+Shift+c move container to workspace number $ws11; workspace number $ws11
 bindsym $mod+Shift+m move container to workspace number $ws12; workspace number $ws12
 bindsym $mod+Shift+o move container to workspace number $ws13; workspace number $ws13

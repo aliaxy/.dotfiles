@@ -4,8 +4,9 @@ local config = {
 	font_size = 12,
 	font = wezterm.font_with_fallback({
 		"FiraCode Nerd Font",
-		"Source Han Sans CN",
+		"PingFang SC",
 		"Noto Sans Symbols",
+		"Font Awesome 6 Free",
 	}),
 	color_scheme = "Catppuccin Mocha",
 

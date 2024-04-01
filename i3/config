@@ -81,7 +81,7 @@ gaps outer 0
 
 # auto execute
 exec --no-startup-id sh ~/.config/betterlockscreen/start.sh
-exec --no-startup-id fcitx5
+exec --no-startup-id fcitx5 &
 exec --no-startup-id copyq
 exec --no-startup-id picom
 exec --no-startup-id sh ~/.fehbg
@@ -118,6 +118,8 @@ bindsym $mod+v exec --no-startup-id copyq toggle
 # screenshot
 bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 
+# open a file manager
+bindsym $mod+e exec --no-startup-id thunar
 
 # fixed workspace for special application
 # start a browser
@@ -126,16 +128,12 @@ bindsym $mod+m workspace number $ws12; exec --no-startup-id $python ~/.config/i3
 bindsym $mod+o workspace number $ws13; exec --no-startup-id $python ~/.config/i3/scripts/OpenApplicaion.py "obs" "obs" $ws13
 bindsym $mod+w workspace number $ws14; exec --no-startup-id $python ~/.config/i3/scripts/OpenApplicaion.py "wps" "wps" $ws14
 
-bindsym $mod+e exec --no-startup-id thunar
-
 # default border style for new windows
 default_border pixel 2
 default_floating_border pixel 2
 hide_edge_borders both
 
 # windows floating
-for_window [class="eww"] floating enable
-for_window [class="Eww"] floating enable
 for_window [class="Alacritty"] floating enable
 for_window [class="QQ"] floating enable
 for_window [class="wechat"] floating enable

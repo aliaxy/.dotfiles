@@ -94,7 +94,6 @@ exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 exec_always --no-startup-id pkill -9 conky; conky
 exec --no-startup-id notify-send -i ~/Pictures/user_icon.png "Welcome you!" -a "Aliaxy"
 
-bindsym $mod+r exec --no-startup-id sh ~/.config/polybar/launch.sh
 # start a terminal
 bindsym $mod+Return exec --no-startup-id wezterm
 

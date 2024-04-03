@@ -70,8 +70,5 @@ depends = []
 [conky.files]
 "conky" = "~/.config/conky"
 
-[eww.files]
-"eww" = "~/.config/eww"
-
 [picom.files]
 "picom" = "~/.config/picom"

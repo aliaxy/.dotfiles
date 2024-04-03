@@ -91,9 +91,10 @@ exec --no-startup-id picom
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id pkill -9 dunst; dunst
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
-exec --no-startup-id pkill -9 conky; conky
+exec_always --no-startup-id pkill -9 conky; conky
 exec --no-startup-id notify-send -i ~/Pictures/user_icon.png "Welcome you!" -a "Aliaxy"
 
+bindsym $mod+r exec --no-startup-id sh ~/.config/polybar/launch.sh
 # start a terminal
 bindsym $mod+Return exec --no-startup-id wezterm
 
@@ -273,3 +274,4 @@ bindsym $mod+Shift+Escape restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+Ctrl+Escape exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+

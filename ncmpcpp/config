@@ -1,4 +1,5 @@
 [mpd]
+lyrics_directory = ~/Music/
 mpd_music_dir = "~/Music/"
 mpd_host = "localhost"
 mpd_port = "6600"
@@ -43,4 +44,4 @@ enable_window_title = "yes"
 external_editor = "vim"
 
 ## you have dunst?
-execute_on_song_change = notify-send "Now Playing" "$(mpc --format '%title% - %artist%' current)"
+execute_on_song_change = notify-send -a "mpd" "Now Playing" "$(mpc --format '%title% - %artist%' current)"
